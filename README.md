@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# 가상자산 조회 서비스
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+가상자산 시세목록을 조회하고 원하는 코인을 북마크로 등록 할 수 있는 React 웹 애플리케이션
 
-## Available Scripts
+## 프로젝트 실행
 
-In the project directory, you can run:
+```html
+1. npm install or yarn install 2. npm start or yarn start
+```
 
-### `yarn start`
+## 프로젝트 구조
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 관리하기 쉽고 컴포넌트의 재사용성을 높이기 위함
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  ### 1. Ducks패턴 사용
 
-### `yarn test`
+  - 리덕스의 액션, 액션함수, 리듀서를 하나의 파일에서 관리
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ### 2. 프리젠테이셔널 컴포넌트와 컨테이너 컴포넌트 분리
 
-### `yarn build`
+  - 프리젠테이셔널 컴포넌트(components) : 리덕스 스토어에 직접 접근하지 않고 필요한 값 또는 함수를 props로만 받아와서 사용
+  - 컨테이너 컴포넌트(containers) : 리덕스 스토어의 상태 조회. 액션 디스패치를 사용
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## styled-component 라이브러리
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- component단위로 스타일링 가능
+- 조건부 스타일링 가능
+- 확장 스타일링 가능
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## react-icons 라이브러리
 
-### `yarn eject`
+- 손쉽게 icon 사용 가능
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## react-loading 라이브러리
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 손쉽게 로딩 애니메이션 사용 가능
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## react-router-dom v6 사용
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Link 컴포넌트를 사용해 검색탭 즐겨찾기탭 이동
+- 중첩된 라우트와 Outlet컴포넌트를 이용해 페이지에 공통으로 보여줘야 하는 [헤더]/ [하단탭] 을 공통 레이아웃 컴포넌트 구현
 
-## Learn More
+## react-redux 라이브러리
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 손쉽게 로딩 애니메이션 사용 가능
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## LocalStorage 사용
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 북마크 체크한 코인을 저장하기위해 사용
+- 다음 접속시에도 북마크정보가 남아있도록 구현
